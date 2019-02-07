@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo confidentalInfo.sh selfDistruct UserSrvc
-port=$(confidentalInfo.sh value HLWA configPort)
+port=$(confidentalInfo.sh value HLWA CONFIG_PORT)
 sudo confidentalInfo.sh start-server $port
 
 target_term -set 4

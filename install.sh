@@ -4,6 +4,15 @@ source ./passwordServer/BashScripts/commandParser.sh
 # Save propertys and create passwords to passwordServer
 sudo confidentalInfo.sh selfDistruct UserSrvc
 
+installJdbcs() {
+  for filename in ./config/jars/*
+  do
+    version=$(echo $filename | sed "s/^.*-\([^-]*\).jar$/\1/")
+    artifact=$(echo $filename | sed "s/^.*\/\([^\/]*\)-.*.jar$/\1/")
+    mvn install:install-file -DgroupId=com.oracle -DartifactId=$artifact -Dversion=$version -Dpackaging=jar -Dfile=$filename -DgeneratePom=true
+  done
+}
+
 setupProperties() {
   echo setting up Properties...
   ./passwordServer/BashScripts/properties.sh each ./config/global_${flags[env]}.properties "confidentalInfo.sh update k: v:"
@@ -26,5 +35,6 @@ setupDataBase() {
 }
 
 
+installJdbcs
 setupProperties
 setupDataBase

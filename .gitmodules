@@ -7,3 +7,6 @@
 [submodule "UserServer"]
 	path = UserServer
 	url = https://github.com/jozsefmorrissey/UserServer.git
+[submodule "collabStr"]
+	path = collabStr
+	url = https://github.com/jozsefmorrissey/collabStr.git

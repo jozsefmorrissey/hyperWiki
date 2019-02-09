@@ -4,3 +4,6 @@
 [submodule "PasswordServer"]
 	path = PasswordServer
 	url = https://github.com/jozsefmorrissey/PasswordServer.git
+[submodule "UserServer"]
+	path = UserServer
+	url = https://github.com/jozsefmorrissey/UserServer.git

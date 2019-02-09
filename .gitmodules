@@ -1,3 +1,6 @@
 [submodule "2TP"]
 	path = 2TP
 	url = https://github.com/jozsefmorrissey/2TP.git
+[submodule "PasswordServer"]
+	path = PasswordServer
+	url = https://github.com/jozsefmorrissey/PasswordServer.git

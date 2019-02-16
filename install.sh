@@ -6,13 +6,12 @@ sudo confidentalInfo.sh selfDistruct UserSrvc
 
 installJdbcs() {
   jars=$(find ./config/jars/ -name "*.jar")
-  echo $jars
-  # for filename in ./config/jars/*
-  # do
-  #   version=$(echo $filename | sed "s/^.*-\([^-]*\).jar$/\1/")
-  #   artifact=$(echo $filename | sed "s/^.*\/\([^\/]*\)-.*.jar$/\1/")
-  #   mvn install:install-file -DgroupId=com.oracle -DartifactId=$artifact -Dversion=$version -Dpackaging=jar -Dfile=$filename -DgeneratePom=true
-  # done
+  for filename in $jars
+  do
+    version=$(echo $filename | sed "s/^.*-\([^-]*\).jar$/\1/")
+    artifact=$(echo $filename | sed "s/^.*\/\([^\/]*\)-.*.jar$/\1/")
+    mvn install:install-file -DgroupId=com.oracle -DartifactId=$artifact -Dversion=$version -Dpackaging=jar -Dfile=$filename -DgeneratePom=true
+  done
 }
 
 setupProperties() {

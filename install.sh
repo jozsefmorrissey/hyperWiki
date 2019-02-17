@@ -20,8 +20,10 @@ installJdbcs() {
 
 setupProperties() {
   echo setting up Properties...
-  ./PasswordServer/BashScripts/properties.sh each ./config/global_${flags[env]}.properties "confidentalInfo.sh update k: v:"
-  ./PasswordServer/BashScripts/properties.sh each ./config/password_${flags[env]}.properties "sudo confidentalInfo.sh update k: v:"
+  ./PasswordServer/BashScripts/properties.sh each ./config/global_${flags[env]}.properties "confidentalInfo.sh update k: v:" $(boolStr) $(flagStr)
+  ./PasswordServer/BashScripts/properties.sh each ./config/password_${flags[env]}.properties "sudo confidentalInfo.sh update k: v:" $(boolStr) $(flagStr)
+  dbUrl=$(./PasswordServer/BashScripts/properties.sh value ./config/global_${flags[env]}.properties HLWA.DB_URL)
+  ./PasswordServer/BashScripts/properties.sh update ./UserServer/server/src/main/resources/application-test.properties spring.datasource.url $dbUrl
 }
 
 setupDataBase() {
@@ -48,6 +50,6 @@ setupMcTemplates() {
 }
 
 # setupMcTemplates
-installJdbcs
-# setupProperties
+# installJdbcs
+setupProperties
 # setupDataBase

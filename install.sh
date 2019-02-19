@@ -47,6 +47,7 @@ setupMcTemplates() {
   mc -name nodeServer template -od ./2TP/ "node ./server.js"
   mc -name passwordServer template -od ./PasswordServer/ "sudo confidentalInfo.sh start-server \$(confidentalInfo.sh value HLWA CONFIG_PORT)"
   mc -name webApp template -od ./2TP/ "npm start"
+  mc -name webApp template -od ./2TP/ "node ./configServer.js"
 }
 
 # setupMcTemplates

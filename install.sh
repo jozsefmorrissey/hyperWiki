@@ -44,6 +44,17 @@ setupDataBase() {
   fi
 }
 
+npmInstall() {
+  currentDir=$(pwd)
+  directories=(./2TP/ ./collabStr/ ./PasswordServer)
+  for directory in ${directories[@]}
+  do
+    cd $directory
+    npm install
+    cd $currentDir
+  done
+}
+
 setupMcTemplates() {
   mc userSrvc template -od ./UserServer/server/ "./cleanRun.sh"
   mc collab template -od ./collabStr/ "node ./webSocket.js"
@@ -53,7 +64,9 @@ setupMcTemplates() {
   mc webAppConfig template -od ./2TP/ "node ./configServer.js"
 }
 
+npmInstall
 setupMcTemplates
 installJdbcs
 setupProperties
+
 # setupDataBase

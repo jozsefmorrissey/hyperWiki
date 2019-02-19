@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 source ./PasswordServer/BashScripts/commandParser.sh
+
+sudo apt-get install pwgen
+sudo ./PasswordServer/installGlobal.sh
 # Save propertys and create passwords to passwordServer
 sudo confidentalInfo.sh selfDistruct UserSrvc
 
@@ -42,12 +45,12 @@ setupDataBase() {
 }
 
 setupMcTemplates() {
-  mc -name userSrvc template -od ./UserServer/server/ "./cleanRun.sh"
-  mc -name collab template -od ./collabStr/ "node ./webSocket.js"
-  mc -name nodeServer template -od ./2TP/ "node ./server.js"
-  mc -name passwordServer template -od ./PasswordServer/ "sudo confidentalInfo.sh start-server \$(confidentalInfo.sh value HLWA CONFIG_PORT)"
-  mc -name webApp template -od ./2TP/ "npm start"
-  mc -name webAppConfig template -od ./2TP/ "node ./configServer.js"
+  mc userSrvc template -od ./UserServer/server/ "./cleanRun.sh"
+  mc collab template -od ./collabStr/ "node ./webSocket.js"
+  mc nodeServer template -od ./2TP/ "node ./server.js"
+  mc passwordServer template -od ./PasswordServer/ "sudo confidentalInfo.sh start-server \$(confidentalInfo.sh value HLWA CONFIG_PORT)"
+  mc webApp template -od ./2TP/ "npm start"
+  mc webAppConfig template -od ./2TP/ "node ./configServer.js"
 }
 
 setupMcTemplates

@@ -1,0 +1,19 @@
+const config = {
+	DB_URL: "localhost:1521/xe",
+	DB_USER: "HLWA",
+	DOMAIN: "http://32.210.111.221",
+	ENDPOINT_ADD: "user/add/",
+	ENDPOINT_AUTHINTICATE: "user/authinticate/",
+	ENDPOINT_GET: "user/get/",
+	ENDPOINT_LOGIN: "user/login/",
+	ENDPOINT_PAGE: "page/",
+	ENDPOINT_RESET: "user/reset/password/",
+	ENDPOINT_UPDATE_PASSWORD: "user/update/password/",
+	ENDPOINT_UPDATE: "user/update/",
+	PORT: "8010",
+	port: "iuxoushoMiethie5oozeichohni5qu",
+	WEB_APP_DOMAIN: "http://32.210.111.221",
+	WEB_APP_PORT: "8020"
+};
+
+exports.config = config;
